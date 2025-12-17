@@ -1,20 +1,21 @@
 package dir;
 
 public class square implements shape {
-    private double sideLength;
+    private float sideLength;
     public square() {}
     @Override
-    public void setside(double side){
+    public void setside(float side){
         sideLength=side;
     }
     @Override
     public void getArea() {
-        System.out.println("The area of a square is "+sideLength*sideLength);
+        String msg=String.format("The area of a Task1.square is %f",sideLength*sideLength);
+        System.out.println(msg);
     }
-
     @Override
     public void getPerimeter() {
-        System.out.println("The perimeter of a square is "+sideLength*4);
+        String msg=String.format("The perimeter of the Task1.square is %f",4*sideLength);
+        System.out.println(msg);
     }
 
 

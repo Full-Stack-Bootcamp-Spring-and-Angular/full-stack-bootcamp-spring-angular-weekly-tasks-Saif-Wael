@@ -1,19 +1,20 @@
 package dir;
 public class circle implements shape {
-    private double radiusLength;
+    private float radiusLength;
     public circle() {
-
     }
     @Override
-    public void setside(double radius) {
+    public void setside(float radius) {
         radiusLength = radius;
     }
     @Override
     public void getArea(){
-        System.out.println("The area of Task1.circle is "+radiusLength*radiusLength*Math.PI);
+        String msg=String.format("The area of Task1.circle is %f",radiusLength*radiusLength*Math.PI);
+        System.out.println(msg);
     }
     @Override
     public void getPerimeter(){
-        System.out.println("The peremeter of Task1.circle is "+2*radiusLength*3.14);
+        String msg=String.format("The peremeter of Task1.circle is %f",2*radiusLength*3.14);
+        System.out.println(msg);
     }
 }
