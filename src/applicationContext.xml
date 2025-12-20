@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean id="draw2d" class="dir.Draw2D">
+    </bean>
+    <bean id="circle" class="dir.Circle">
+        <constructor-arg ref="draw2d"/>
+    </bean>
+    <bean id="square" class="dir.Square">
+        <property name="drawing" ref="draw2d"/>
+    </bean>
+
+    <bean id="dataBaseOperation" class="part2.dataBaseOperation">
+        <property name="url" value="${database.url}" />
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+    </bean>
+    <bean id="car" class="part2.Car">
+        <constructor-arg ref="dataBaseOperation" />
+    </bean>
+    <bean id="plane" class="part2.Plane">
+        <property name="dataBaseOperation" ref="dataBaseOperation"/>
+    </bean>
+
+</beans>
+
+
+
+
